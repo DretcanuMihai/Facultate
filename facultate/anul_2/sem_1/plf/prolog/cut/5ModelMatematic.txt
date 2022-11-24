@@ -1,0 +1,24 @@
+5 a)Sa se determine pozitiile elementului maxim dintr-o lista liniara. De ex:poz([10,14,12,13,14], L) va produce L = [2,5].
+
+
+max(a,b)=       {a, daca a>b
+		{b, altfel (daca a<=b)
+
+
+(nu are sens sa aflam maximul unei liste vide -> nici macar nu putem spune ca maximul unei liste vide este 0, deoarece am putea avea elemente negative)
+element_maxim(l1l2...ln)=       {l1, daca n=1
+				{max(l1,element_maxim(l2l3...ln)), altfel (daca n>1)
+
+creare_lista_indici(l1l2...ln,val,poz)=     { vid, daca n=0
+					    { (poz) + creare_lista_indici(l2l3...ln,val,poz+1), daca n!=0 si l1=val
+                                            { creare_lista_indici(l2l3...ln,val,poz+1), altfel (daca n!=0 si l1!=val)
+
+determina_indici_max(l1l2...ln)={[], daca n=0
+				{creare_lista_indici(l1l2...ln,element_maxim(l1l2...ln),1), altfel (daca n!=0)
+
+b)Se  da  o  lista  eterogena,  formata  din  numere  intregi  si  liste  de  numere intregi. Sa se inlocuiasca fiecare sublista cu pozitiile elementului maxim
+din sublista respectiva. De ex:[1, [2, 3], [4, 1, 4], 3, 6, [7, 10, 1, 3, 9], 5, [1, 1, 1], 7] =>[1, [2], [1, 3], 3, 6, [2], 5, [1, 2, 3], 7]
+
+transformare(l1l2...ln)={[], daca n=0
+			{(l1)+transformare(l2l3...ln), daca n!=0 si l1 este intreg
+			{(determina_indici_max(l1))+transformare(l2l3...ln), altfel (daca n!=0 si l1 este lista)

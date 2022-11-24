@@ -1,0 +1,52 @@
+* {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+.my_form {
+    width: 500px;
+}
+
+.my_form label {
+    display: inline-block;
+    height: 30px;
+    padding-right: 10px;
+    text-align: right;
+    width: 70px;
+}
+
+.my_form input {
+    background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Solid_white_bordered.svg/768px-Solid_white_bordered.svg.png");
+    background-repeat: repeat;
+    background-size: 20px;
+    border: none;
+    box-sizing: border-box;
+    display: inline-block;
+    font-family: monospace;
+    font-size: 13px;
+    height: 20px;
+    letter-spacing: 13px;
+    padding-left: 2px;
+}
+
+.my_form input:focus {
+    outline: none;
+}
+
+.my_form #cnp {
+    width: calc(13 * 20px + 5px);
+}
+
+.my_form #nume {
+    width: calc(20 * 20px + 5px);
+}
+
+.my_form #prenume {
+    width: calc(20 * 20px + 5px);
+}

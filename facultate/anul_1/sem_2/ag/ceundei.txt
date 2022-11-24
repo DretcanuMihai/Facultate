@@ -1,0 +1,18 @@
+Lab 1: P1:transformarea dintr-o reprezentare in alta
+       P2:noduri izolate, graf regular, matricea distantelor, conexitate
+Lab 2: P1:Alg Moore
+       P2:Inchidere tranzitiva
+       P3:Labirint (Alg. Lee)
+       P4:BFS
+       P5:DFS
+Lab 3: P1:Dijkstra (Bellman-Ford?)
+       P2:Johnson
+Lab 4: P1:codare Pruffer
+       P2:decodare Pruffer
+       P3:codare Huffman
+       P4:decodare Huffman
+       P5:Arbore minim: Prim
+Lab 5: P1:Edmonds-Karp
+       P2:Pompare topologica
+       P3:Hierholzer (ciclu eulerian)
+Lab 6: P1:Colorare

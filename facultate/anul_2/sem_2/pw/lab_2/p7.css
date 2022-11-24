@@ -1,0 +1,57 @@
+* {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+.dialog {
+    list-style-type: none;
+    width: 100%;
+}
+.dialog li{
+    border: 2px solid black;
+    border-radius: 20px 20px;
+    margin: 2em auto 2em auto;
+    max-width: 50%;
+    min-height: 50px;
+    min-width: 30%;
+    padding: 15px;
+    position: relative;
+    text-align: center;
+}
+.dialog li::after {
+    background-color: white;
+    content: "";
+    left: -14px;
+    position: absolute;
+    top: 20px;
+    transform: rotate(45deg);
+    width: 20px;
+    height: 20px;
+    border-style: solid;
+    border-color: black;
+    border-top: 0;
+    border-right: 0;
+}
+.dialog li::before {
+    background-image: url("https://www.cs.ubbcluj.ro/~bufny/wp-content/uploads/css-pr7.png");
+    content: "";
+    left: -94px;
+    position: absolute;
+    top: 20px;
+    width: 80px;
+    height: 80px;
+}
+.alice::before{
+    background-position-x: -19px;
+    background-position-y: -45px;
+}
+.bob::before{
+    background-position-x: -20px;
+    background-position-y: -152px;
+}

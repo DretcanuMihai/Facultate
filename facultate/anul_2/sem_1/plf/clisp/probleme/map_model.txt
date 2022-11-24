@@ -1,0 +1,15 @@
+10.  Definiti o functie care determina numarul nodurilor de pe nivelul k dintr-un arbore n-ar reprezentat sub forma
+ (radacina lista_noduri_subarb1...lista_noduri_subarbn) 
+Ex: arborelele este (a (b (c)) (d) (e (f))) si k=1 => 3 noduri 
+
+radacina se afla la nivelul 0
+
+noduri_nivel_k(a,k)=	{ 0, daca a atom (inclusiv lista vida - arbore vid)
+						{ 1, daca a lista si k=0
+						{ Suma (i=1,n) din noduri_nivel_k(ai,k-1), altfel(daca a=a1a2...an lista si k!=0)
+						
+----------------------------------
+			
+noduri_nivel_k(a1a2...an,k)=	{ 0, daca n=0
+								{ 1, daca n!=0 si k=0
+								{ Suma (i=2,n) din noduri_nivel_k(ai,k-1), altfel(daca n!=0 si k!=0)

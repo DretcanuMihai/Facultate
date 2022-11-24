@@ -1,0 +1,32 @@
+* {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+}
+.my_gallery{
+    border: solid black 2px;
+    display: block;
+    height: auto;
+    list-style: none;
+    margin: 10px;
+    padding: 10px;
+    width: 564px;
+}
+.my_gallery img{
+    height: 200px;
+    width: 200px;
+}
+.my_gallery li{
+    background-color: cyan;
+    display: inline-block;
+    height: 200px;
+    margin: 10px;
+    padding: 30px;
+    text-align: center;
+    width: 200px;
+}

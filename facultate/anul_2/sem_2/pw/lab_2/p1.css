@@ -1,0 +1,23 @@
+.main{
+    background-color: yellow;
+    border-style: solid;
+    border-color: black;
+    display: flex;
+    width: fit-content;
+}
+.main div{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    width: 200px;
+}
+.left_div{
+    background-color: blue;
+}
+.right_div{
+    background-color: red;
+}
+.my_pizza{
+    height: 200px;
+}

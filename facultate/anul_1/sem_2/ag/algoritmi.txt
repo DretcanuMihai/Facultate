@@ -1,0 +1,263 @@
+Chestii:
+	=>Relaxare (pentru muchia (u,v)): daca v.d> u.d+ w(u,v)
+						v.d=u.d+w(u,v)
+						v.pi=u
+
+
+
+
+
+
+
+Bellman Ford:
+	=>Algoritmul determina drumurile de cost minim de la un varf s la oricare alt varf
+	=>Returneaza True daca nu exista cicluri de pondera negativa
+	~>atribut lungime_drum si parinte
+	->orice drum are maxim n-1 muchii, deci un for i=1,n-1
+	->pentru fiecare muchie: Relaxare: v.d=min(v.d,u.v), daca se schimba valoarea lui v.d, v.pi=u
+	->facem inca o secventa de comparare la final, daca se schimba ceva, return false
+
+Bellman Kalaba:
+	=>Determina drumurile minime din orice nod intr-un nod s
+	~>atribut lungime_drum si parinte
+	~>se foloseste o matrice A[N][N] pentru care a(ij) are valoarea: 0 daca i=j, altfel W(vi,vj)(ponderea muchiei) daca exista muchia, altfel infinit
+	->pentru a determina drumurile minime care se termina intr-un nod vj
+	->Facem un vector ce are ca elemente elementele de pe coloana j
+	->facem in mod repet vi = min(aij+vj), pentru j=1,n
+	->ne oprim cand nu mai se obtin valori noi (ultimul v = penultimul v)
+
+BFS:
+	=>parcurgere in latime
+	=>Asta merge doar din nodul din care alegi sa incepi
+	->un Queue in care tot punem nodurile vizitate
+	->tot scoatem cate un element din queue si punem elementele vecine nevizitate in queue
+	->pana cand queue e gol
+
+Colorare:
+	=>coloreaza un graf
+	->pentru v in V
+	->	v.k=0
+	->v1.k=1
+	->for j=2,n
+	->	vj.k=min{k/k>0 si u.k!=k, oricare ar fi u adiacent lui v}
+
+
+Dijkstra:
+	=>Algoritmul determina drumurile de cost minim de la un varf s la restul
+	=>merge doar pe pondere pozitive
+	~>Greedy
+	~>atribut lungime_drum si parinte
+	->Punem intr-un array toate nodurile
+	->cat timp(array nu e gol)
+	->il extragem pe cel de drum minim
+	->verificam nodurile vecine ce nu au fost parcurse si aplicam relaxare
+
+DFS:
+	=>parcurgere in adancime
+	=>Asta merge peste tot (for la inceput, dupa apelezi DFS_VISIT)
+	->for nod in graf: daca nodul e nevizitat, DFS_VISIT(nod)
+	->la DFS_VISIT parcurgi nodurile adiacente nodului curent, si daca nodul e nevizitat, automat apelezi DFS_VISIT pe el
+
+EdmondsKarp:
+	=>gaseste flux maxim, si overall imi place mai mult ca complexitate decat Ford
+	->f=0;
+	->do
+	->	
+	->while (se gasesc drumuri);
+	->return f;
+
+Fleury:
+	=>determina ciclu Eulerian (nodul u initial ales de noi)
+	->L=vida (aici va fi ciclul eulerian)
+	->cat timp A(=muchii) nevid
+	->	luam o muchie e cu o extremitate in u ce nu e punte -> punem in L;
+	->	tip: pentru a verifica ca nu este puncte, aplica DFS de 2 ori - o data cu muchia, o data fara;
+	->	u=cealalta extremitate a muchiei e
+
+Floyd-Warshall:
+	=>Algoritmul determina drumul de cost minim dintre oricare doua noduri
+	->se face matricea costurilor
+	->algoritmul cu 3 for-uri (for k in range(1;n)
+					for i in range(1;n)
+						for j in range(1;n)
+							if(a[i][j]>a[i][k]+a[k][j]) a[i][j]=a[i][k]+a[k][j]
+
+Ford-Fulkersom:
+	=>gaseste reteaua de flux maxim
+	~> cf(u,v)=c(u,v)-f(u,v)
+	~> cf(b,a)=f(a,b)
+	~> cf(u,v)=c(u,v)-f(u,v) daca (u;v) este muchie; f(v,u) daca (v,u) este muchie; 0 in rest
+	->(G,s,t)
+	->initializare flux cu 0
+	->cat timp exista o cale reziduala p in graf rezidual Gf
+	->		creste flux f de pe p
+	-> return f
+------------------------------------------------------------
+	-> for muchie in E
+	->	muchie.f=0
+	->cat timp exista o cale reziduala p de la s la t in graful rezidual Gf
+	->	cf(p)=min{cf(u,v)/(u,v) in p}
+	->	for (u,v) in p
+	->		daca (u,v) in E
+	->			(u,v).f=(u,v).f+cf(p)
+	->		altfel
+	->			(v,u).f=(v,u)-cf(p);
+	->return f
+
+
+
+Generic_MST:
+	=>gaseste arbore de cost minim la un graf (generic)
+	->A=vid
+	->cat timp A nu este MST:
+	->	gaseste muchie sigura (u;v) -> adauga (u;v) la A
+
+Hierholzer:
+	=>gaseste ciclu eulerian (G,v), v initial
+	->daca v izolat: return v
+	->altfel:
+	->	creez ciclu din v
+	->	sterge muchiile ciclului
+	->	return (H(v1),H(v2)...H(vn),v1)
+
+
+Hopcroft-Karp:
+	->M=vid
+	->while exista un lant de crestere in G:
+	->	foloseste BFS pe a construi un graf alternant cu radacina in vf nesaturat cuplajului M cu DFS
+	->return M
+
+Huffman:
+	=>codifica un text;
+	->luam textul ce-l avem si facem un vector de frecvente: aaabbcdd : [a:4; b:2; c:1; d:2] -> [c:1; b:2; d:2; a:4];
+	->transformam fiecare caracter intr-un nod ce contine frecventa si punem intr-un queue de prioritati;
+	->for i=1; i<=noduri-1;i++
+	->	z=nod nou; z->stg=min(Q);pop(Q); z->dr=min(Q);pop(Q); push(z);
+
+
+
+
+
+Johnson:
+	=>determina drumul minim de la orice nod la orice nod pentru un graf rar orientat si ponderat
+	->vezi poza
+	->avem nevoie de noi ponderii pentru fiecare muchie
+	->Cream un graf nou cu un varf extra s, cu muchii (s,v) de pondere 0
+	->Aplicam Bellman-Ford din s; h(v)=drumul minim de la s la v
+	->w'(u,v)=w(u,v)+h(u)-h(v)
+	->Aplicam Dijkstra din fiecare nod
+	->d(u,v)=d'(u,v)-h(u)+h(v)
+
+Kosaraju (Kosaraju-Sharir):
+	=>Algoritmul determina componentele tari conexe
+	->Facem DFS pe graf; cand un nod se inchide, il punem pe stiva
+	->Facem complementara grafului
+	->Scoatem pe rand nodurile de pe stiva si aplicam DFS pe ele; Fiecare DFS detemrina o componenta tare conexa
+
+Kruskall:
+	=>determina arbore de cost minim (arce);
+	->E=arce; sortam dupa pondere;
+	->for (u;v) in E
+	->	if(u si v din seturi diferite) : adauga in arbore (u;v)
+
+Moore:
+	=>Algoritmul determina cel mai scurt drum dintr-un punct s in oricare alt var 
+	=>merge doar pe grafurile neponderate
+	->Aplicam practic un BFS
+	->punem intr-un queue Q nodul de inceput
+	->cat timp Q nu este vid, scoatem un nod din el (cum ar trebui facut la o coada)
+	->verificam toate nodurile vecine si, daca nu au fost vizitate, le updatam distanta si parintele si apoi le punem in queue
+	->pentru a "descifra" drumul de la s la v, luam nodul v si vedem cat de mare este drumul, apoi parcurgem in sens invers vectorul de parinti
+	  pana ajungem la s
+
+
+Pompare_Preflux:
+	->Initializare_Preflux(G,s,t)
+	->cat timp(true)
+	->	daca exista u diferit de {s,t} si u.e>0 si cf(u,v)>0 si u.h=v.h+1
+	->		pompare(u,v); continue;
+	->	daca exista u diferit de {s,t} si u.e>0 si {u.h<=v.h/ oricare ar fi v din V,(u,v) din Ef}
+	->		inaltare(u); continue;
+	->	break;
+-------------------------------------------------------------------------------------------------
+Initializare_preflux:
+	=>s = sursa
+	->for v in V
+	->v.h=0; v.e=0;
+	->for(u,v) in E
+	->(u,v).f=0
+	->s.h=|V|
+	->for v in Adj(s)
+	->	(s,v).f=c(s,v)
+	->	v.e=c(s,v)
+	->	s.e=s.e-c(s,v)
+Pompare(u,v):
+	// u diferit de s,t si u.e>0 si c(u,v)>0 si u.h=v.h+1
+	->deltaf(u,v)=min(u.e,cf(u,v))
+	->daca (u,v) in E
+	->	(u,v).f=(u,v).f + deltaf(u,v)
+	->altfel
+	->	(v,u).f=(v,u).f-deltaf(u,v)
+	->u.e=u.e-deltaf(u,v)
+	->v.e=v.e+deltaf(u,v)
+
+Inaltare(u):
+	// u diferit de s,t si {u.h<=v.h / oricare ar fi v din V, (u,v) din Ef}
+	->u.h=1+min{v.h/(u,v) din Ef}
+----------------------------------------------------------------------------------------------
+
+
+Pompare topologica:
+	->Initializare_Preflux(G,s,t)
+	->L = V\{s,t} ->lista
+	->for u  din V\{s,t}
+	->	u.curent=u.N.head
+	->u=l.
+	->cat timp u!=Nil
+	->	inaltime_veche=u.h
+	->	Descarcare(u)
+	->	daca(u.h>inaltime veche)
+	->		mutam u in capul listei L
+	->	u.next
+--------------------------------------------------------
+Descarcare(u):
+	->cat timp u.e>0
+	->	v=u.curent
+	->	daca v=Nil
+	->		Inaltare(u)
+	->		u.curent=u.N.head
+	->	altfel daca cf(u,v)>0 si u.h=v.h+1
+	->		Pompare)u,v)
+	->	altfel u.curent=u.urmatorul_vecin
+--------------------------------------------------------
+
+Postas_Chinezesc:
+	=>determina ciclu de cost minim
+	->determinm nodurilede grad impar
+	->se formeaza perechi de vf. de grad impar (toate multimile de perechi posibile)
+	->pentru fiecare pereche se cauta drumul de cost minim
+	->se cauta multimea de perechi pentru care suma ponderilor e minima
+	->se dubleaza muchiile de pe drumurile identifiate anterior (din multimea minima)
+	->costul drumului este costul precedent + costul drumurilor noi
+	->se cauta ciclul eulerian pe graful obtinut
+
+
+Prim:
+	=>determina un arbore de cost minim pornint dintr-un varf
+	->Dijkstra
+
+Pruffer(Codare):
+	=>codeaza un arbore, returneaza un vector K de noduri-1 elemente
+	->cat timp arborele meu contine chestii inafara de radacina
+	->te uiti la frunze si o alegi pe cea mai "mica", si adaugi in k parintele ei; Scoti din arbore frunza respectiva
+
+Pruffer(Decodare):
+	=>decodeaza un arbore pornind de la un vector K de noduri-1 elemente (arborele va avea noduri noduri)
+	->for(i=1;i<=noduri-1;i++)
+	->iei primul element din K (x), si cea mai mica valoare ce nu apare in K (y). (x;y) va fi o muchie; scoatem x din K, si punem y in capat
+
+
+
+
+
+

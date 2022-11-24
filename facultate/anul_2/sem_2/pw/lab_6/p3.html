@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>Problema 3</title>
+</head>
+<body>
+<select id="my_select" onchange="fillRequest()"></select>
+<form id="my_form">
+    <label for="denumire">Denumire:</label><input type="text" id="denumire" name="denumire"
+                                                  maxlength="20" oninput="turnOnButton()">
+    <label for="cantitate">Canitate:</label><input type="number" id="cantitate"
+                                                   name="cantitate" maxlength="10" oninput="turnOnButton()">
+    <input id="my_button" type="submit" disabled value="Save" onclick="modifyRequest();return false;">
+</form>
+<script src="p3.js"></script>
+</body>
+</html>

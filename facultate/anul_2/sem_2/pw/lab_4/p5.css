@@ -1,0 +1,34 @@
+* {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+}
+img{
+    height: 300px;
+    width: 300px;
+}
+li{
+    display: none;
+}
+.my_button{
+    display: inline-block;
+    height: 50px;
+    padding-top: 130px;
+    width: 50px;
+}
+.text_over_img {
+    position: relative;
+    bottom: 30px;
+    left: 100px;
+}
+#carousel{
+    display: inline-block;
+}
+#my_container{
+    display: flex;
+}

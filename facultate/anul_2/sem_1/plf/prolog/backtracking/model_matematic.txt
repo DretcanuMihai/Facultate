@@ -1,0 +1,16 @@
+13. "Colorarea hartilor". Se dau n tari. Se cer toate modalitatile de colorarea celor n tari cu m culori, astfel inca doua tari vecine sa nu fie colorate la fel.
+
+O solutie va fi de forma: (c1,c2,c3,...,cn), unde ci apartine multimii {1,2,3...,m}
+Solutia va fi valida daca ci!=ci+1, oricare ar fi i din {1,2,3,...n-1}
+
+?
+gaseste_toate_colorarile(n,m)=U(coloreaza(n,m)) ?
+?
+
+coloreaza(n,m)=coloreaza_aux(n,m,1,0)
+
+
+coloreaza_aux(n,m,k,last_color)=
+	1. [], daca n=0
+	2. (k) + coloreaza_aux(n-1,m,1,k), daca n!=0, k<=m, k!=last_color
+	3. coloreaza_aux(n,m,k+1,last_color), daca n!=0, k<=m

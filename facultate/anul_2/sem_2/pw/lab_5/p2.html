@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>p2</title>
+</head>
+<body>
+<form id="my_form" onsubmit="return false">
+    <fieldset>
+        <legend>Formular</legend>
+        <label for="nume">Nume:</label>
+        <input type="text" id="nume" name="nume" maxlength="20">
+        <label for="data_nasterii">Data nasterii:</label>
+        <input type="date" id="data_nasterii" name="data_nasterii">
+        <label for="varsta">Varsta:</label>
+        <input type="number" id="varsta" name="varsta">
+        <label for="mail">Adresa de email:</label>
+        <input type="text" id="mail" name="mail">
+        <input type="submit" value="Trimite" onclick="validate()">
+    </fieldset>
+</form>
+<script src="p2.js"></script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+*{
+    margin: 0;
+}
+html,body{
+    height: 100%;
+    width: 100%;
+}
+.footer{
+    align-items: center;
+    background-color: pink;
+    display: flex;
+    height: 15%;
+}
+.header{
+    align-items: center;
+    background-color: red;
+    display: flex;
+    height: 15%;
+}
+.main_div{
+    align-items: center;
+    background-color: green;
+    display: flex;
+    height: 70%;
+    width: 70%;
+}
+.menu{
+    background-color: yellow;
+    float: left;
+    height: 70%;
+    width: 30%;
+}
+.menu a{
+    border-bottom: solid black 1px;
+    box-sizing: border-box;
+    color: black;
+    display: block;
+    padding-left: 10px;
+}
+
+

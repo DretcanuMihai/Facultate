@@ -1,0 +1,48 @@
+*{
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+html,body{
+    height: 100%;
+    width: 100%;
+}
+.footer{
+    align-items: center;
+    background-color: pink;
+    clear: both;
+    display: flex;
+    height: 60px;
+}
+.header{
+    background-color: red;
+    display: flex;
+    height: 100px;
+    justify-content: center;
+}
+.main_div{
+    background-color: green;
+    box-sizing: border-box;
+    float: left;
+    height: auto;
+    min-height: calc(100% - 160px);
+    padding: 20px;
+    width: 70%;
+}
+.menu{
+    background-color: yellow;
+    float: left;
+    height: auto;
+    min-height: calc(100% - 160px);
+    width: 30%;
+}
+.menu ul{
+    height: 100%;
+    list-style: none;
+    width: 100%;
+}
+.menu ul li{
+    border-bottom: solid black 1px;
+}
+
+
